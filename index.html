@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width initial-scale=1.0">
+        <title>Numbers</title>
+        <link rel="icon" type="image/png" href="media/icon.png">
+        <link rel="stylesheet" href="css/design.css">
+        <script src="js/p5.js"></script>
+        <script defer src="js/logic.js"></script>
+        <style>
+            #feedback {color:red;}
+        </style>
+    </head>
+
+    <body>
+        <div id="dashboard">
+            <span>
+                <p onclick="goHome();">HOME</p>
+            </span>
+
+
+
+        </div>
+        <div id="first-page" class="view">
+            <div class="menu">
+                <h1>Welcome to the number converter</h1>
+                <p onclick="showView('game-screen')">Game</p>
+                <p onclick="showView('number-to-text')">Number to text</p>
+                <p onclick="showView('text-to-number')">Text to number</p>
+                <p>History</p>
+
+            </div>
+
+        </div>
+        <div id="number-to-text" class="view" style="display:none">
+            <div id="nr-input-box">
+                <p>Enter a number:</p>
+                <input id="nr-user-input" type="number" >
+                <p id="feedback"></p>                
+            </div>
+
+            <span >
+                <button onclick="sendNrInput()" class="submit-button">></button>
+            </span>
+            
+
+            <div id="txt-display-box" class="result-display-box">
+                <p id="user-nr"></p>
+                <p id="txt-results"></p>
+
+            </div>
+            
+        </div>
+        <div id="text-to-number" class="view" style="display:none">
+            <div id="text-input-box"> 
+                <p>Enter text:</p>
+                <input id="txt-user-input" type="text"> 
+            </div>
+                <span >
+                    <button onclick="sendTxtInput()" class="submit-button">></button>
+                </span>             
+            <div id="nr-display-box" class="result-display-box"> 
+                <p id="user-txt"></p>
+                <p id="nr-results"></p>
+
+            </div>
+
+        </div>
+        <div id="game-screen" class="view" style="display:none">
+            <div id="game-menu" class="menu" class="game-view" style="display: none;">
+                <h2>Welcome to the game</h2>
+                
+                <p onclick="switchGameView('start-game'); gameStart()">Start game</p>
+                <p onclick="switchGameView('game-settings')">Game settings</p>
+                <p onclick="switchGameView('game-record'); showRecord()">Game record</p>
+                
+
+            </div>
+            <div id="start-game" class="game-view" style="display:none;">
+                <p id="generated-number"></p>
+                <p class="choice" id="ansId1" onclick="submitAns('ansId1')"></p>
+                <p class="choice" id="ansId2" onclick='submitAns("ansId2")'></p>
+                <p class="choice" id="ansId3" onclick="submitAns('ansId3')"></p>
+
+            </div>
+            <div id="game-settings" class="game-view" style="display:none;">
+
+            </div>
+            <div id="game-record" class="game-view" style="display:none;">
+                <ul id="game-record-list">
+
+                </ul>
+                <p id="average-stats"> </p>
+
+            </div>
+            <div id="game-stats" class="game-view" style="display:none;">
+                <h2> Game complete!! </h2>
+                <h3> Take a look at your stats</h3>
+                <p id="correct-ans"> </p>
+                <p id="wrong-ans"></p>
+                <p id="time-taken"> </p>
+                <p id="score"></p>
+                <p  id="back-button" onclick="switchGameView('game-menu')" > 
+                    Back to game menu
+                </p>
+                
+
+            </div>
+
+        </div>
+
+    </body>
+</html>
